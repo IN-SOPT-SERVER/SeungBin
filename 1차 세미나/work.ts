@@ -1,11 +1,11 @@
-interface member {
+interface SoptMember {
   name: string;
   age: number;
   home: string;
   like: string;
 }
 
-const members = [
+const members: SoptMember[] = [
   {
     name: "이용택",
     age: 25,
@@ -26,8 +26,8 @@ const members = [
   },
 ];
 
-members.map((member) =>
+members.map((Member) =>
   console.log(
-    `${member.name}는 ${member.age}살이고 ${member.home}에 살고있고 ${member.like}를 좋아합니다.`
+    `${Member.name}는 ${Member.age}살이고 ${Member.home}에 살고있고 ${Member.like}를 좋아합니다.`
   )
 );
