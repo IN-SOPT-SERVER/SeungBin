@@ -26,8 +26,8 @@ const members: SoptMember[] = [
   },
 ];
 
-members.map((Member) =>
+members.map((SoptMember) =>
   console.log(
-    `${Member.name}는 ${Member.age}살이고 ${Member.home}에 살고있고 ${Member.like}를 좋아합니다.`
+    `${SoptMember.name}는 ${SoptMember.age}살이고 ${SoptMember.home}에 살고있고 ${SoptMember.like}를 좋아합니다.`
   )
 );
