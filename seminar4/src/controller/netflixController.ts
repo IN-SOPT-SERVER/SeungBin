@@ -85,12 +85,20 @@ const updatenetflixMovie = async (req: Request, res: Response) => {
     .status(200)
     .json({ status: 200, message: "영화 업데이트 성공", updatenetflixMovie });
 };
+// 영화 삭제
+const deletenetflixMovie = async (req: Request, res: Response) => {
+  const { netflixId } = req.params;
+
+  const data = await netflixService.deletenetflixMovie(+netflixId);
+  return res.status(200).json({ status: 200, message: "영화 삭제 성공", data });
+};
 
 const netflixController = {
   getnetflixMovieById,
   createnetflixMovie,
   getAllnetflixMovie,
   updatenetflixMovie,
+  deletenetflixMovie,
 };
 
 export default netflixController;

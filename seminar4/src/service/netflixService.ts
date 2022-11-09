@@ -59,11 +59,21 @@ const updatenetflixMovie = async (movieId: number, title: string) => {
   });
   return movie;
 };
+// 영화 삭제
+const deletenetflixMovie = async (movieId: number) => {
+  const movie = await prisma.netflixMovie.delete({
+    where: {
+      id: movieId,
+    },
+  });
+  return movie;
+};
 const netflixService = {
   getnetflixMovieById,
   createnetflixMovie,
   getAllnetflixMovie,
   updatenetflixMovie,
+  deletenetflixMovie,
 };
 
 export default netflixService;
