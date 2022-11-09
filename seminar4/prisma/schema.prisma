@@ -13,3 +13,18 @@ model User {
   age      Int?
   email    String @db.VarChar(400)
 }
+
+model netflixMovie {
+  id                Int      @id(map: "netflixMovie_pk") @unique @default(autoincrement())
+  title             String
+  image             String
+  iconImage         String
+  runningTime       Int
+  watchTime         Int
+  epiNum            Int
+  currentNum        Int
+  detail            String
+  character         String[]
+  genre             String[]
+  seriesDescription String
+}
