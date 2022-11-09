@@ -42,9 +42,15 @@ const createnetflixMovie = async (
   });
   return movie;
 };
+// 영화 전체 조회
+const getAllnetflixMovie = async () => {
+  const movie = await prisma.netflixMovie.findMany();
+  return movie;
+};
 const netflixService = {
   getnetflixMovieById,
   createnetflixMovie,
+  getAllnetflixMovie,
 };
 
 export default netflixService;

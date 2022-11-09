@@ -62,10 +62,18 @@ const createnetflixMovie = async (req: Request, res: Response) => {
   }
   return res.status(200).json({ status: 200, message: "영화 생성 성공", data });
 };
+// 영화 전체 조회
+const getAllnetflixMovie = async (req: Request, res: Response) => {
+  const data = await netflixService.getAllnetflixMovie();
+  return res
+    .status(200)
+    .json({ status: 200, message: "영화 전체 조회 성공", data });
+};
 
 const netflixController = {
   getnetflixMovieById,
   createnetflixMovie,
+  getAllnetflixMovie,
 };
 
 export default netflixController;
