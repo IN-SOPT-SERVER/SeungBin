@@ -47,10 +47,23 @@ const getAllnetflixMovie = async () => {
   const movie = await prisma.netflixMovie.findMany();
   return movie;
 };
+// 영화 정보 업데이트
+const updatenetflixMovie = async (movieId: number, title: string) => {
+  const movie = await prisma.netflixMovie.update({
+    where: {
+      id: movieId,
+    },
+    data: {
+      title: title,
+    },
+  });
+  return movie;
+};
 const netflixService = {
   getnetflixMovieById,
   createnetflixMovie,
   getAllnetflixMovie,
+  updatenetflixMovie,
 };
 
 export default netflixService;

@@ -11,4 +11,7 @@ router.post("/", netflixController.createnetflixMovie);
 // 전체 영화 조회
 router.get("/", netflixController.getAllnetflixMovie);
 
+// 영화 정보 업데이트
+router.patch("/:netflixId", netflixController.updatenetflixMovie);
+
 export default router;

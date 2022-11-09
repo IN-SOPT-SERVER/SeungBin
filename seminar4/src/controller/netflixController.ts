@@ -69,11 +69,28 @@ const getAllnetflixMovie = async (req: Request, res: Response) => {
     .status(200)
     .json({ status: 200, message: "영화 전체 조회 성공", data });
 };
+// 영화 업데이트
+const updatenetflixMovie = async (req: Request, res: Response) => {
+  const { title } = req.body;
+  const { netflixId } = req.params;
+  if (!title) {
+    return res.status(400).json({ status: 404, message: "영화 업데이트 실패" });
+  }
+
+  const updatenetflixMovie = await netflixService.updatenetflixMovie(
+    +netflixId,
+    title
+  );
+  return res
+    .status(200)
+    .json({ status: 200, message: "영화 업데이트 성공", updatenetflixMovie });
+};
 
 const netflixController = {
   getnetflixMovieById,
   createnetflixMovie,
   getAllnetflixMovie,
+  updatenetflixMovie,
 };
 
 export default netflixController;
