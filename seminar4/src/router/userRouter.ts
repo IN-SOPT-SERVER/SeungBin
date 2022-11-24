@@ -1,13 +1,14 @@
 import { Router } from "express";
 import { body } from "express-validator";
 import { userController } from "../controller";
+import { auth } from "../middlwares";
 
 const router: Router = Router();
 
-router.get("/:userId", userController.getUserById);
+router.get("/:userId", auth, userController.getUserById);
 
 // 전체 유저 조회
-router.get("/", userController.getAllUser);
+router.get("/", auth, userController.getAllUser);
 
 // 유저 생성
 router.post(
@@ -21,10 +22,10 @@ router.post(
 );
 
 // 유저 정보 업데이트
-router.patch("/:userId", userController.updateUser);
+router.patch("/:userId", auth, userController.updateUser);
 
 // 유저 삭제
-router.delete("/:userId", userController.deleteUser);
+router.delete("/:userId", auth, userController.deleteUser);
 
 //* 로그인 - POST api/user/signin
 router.post(
