@@ -9,9 +9,10 @@ datasource db {
 
 model User {
   id       Int    @id(map: "user_pk") @unique(map: "user_id_uindex") @default(autoincrement())
-  userName String
+  userName String @db.VarChar(100)
   age      Int?
   email    String @db.VarChar(400)
+  password String @db.VarChar(400)
 }
 
 model netflixMovie {
